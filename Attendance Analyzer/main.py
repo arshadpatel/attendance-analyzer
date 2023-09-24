@@ -137,9 +137,71 @@ def click(class_name,current_date):
             radiobutton_10a=Radiobutton(third_frame,text="Absent",font=('Comic Sans MS',12),variable=var10,value=2,command=lambda: add(var10.get(),9))
             radiobutton_10a.grid(row=9,column=2)
 
+        if(class_name=="CSE A"):
+            attendance=[s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10]
+            student_list=["20J41A0501:","20J41A0502:","20J41A0503:","20J41A0504:","20J41A0505:","20J41A0506:","20J41A0507:","20J41A0508:","20J41A0509:","20J41A0510:"]
+            create_radiobuttons(student_list)
 
-#dev - 1
+        elif(class_name=="CSE B"):
+            attendance=[s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10]
+            student_list=["20J41A0561:","20J41A0562:","20J41A0563:","20J41A0564:","20J41A0565:","20J41A0566:","20J41A0567:","20J41A0568:","20J41A0569:","20J41A0570:"]
+            create_radiobuttons(student_list)
 
+        elif(class_name=="CSE C"):
+            attendance=[s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10]
+            student_list=["20J41A05C1:","20J41A05C2:","20J41A05C3:","20J41A05C4:","20J41A05C5:","20J41A05C6:","20J41A05C7:","20J41A05C8:","20J41A05C9:","20J41A05D0:"]
+            create_radiobuttons(student_list)
+
+        else:
+            attendance=[s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10]
+            student_list=["20J41A05J1:","20J41A05J2:","20J41A05J3:","20J41A05J4:","20J41A05J5:","20J41A05J6:","20J41A05J7:","20J41A05J8:","20J41A05J9:","20J41A05J0:"]
+            create_radiobuttons(student_list)      
+
+        #5
+        def final_click(attendance_list):
+            def percentage_display(percentage_list,presentdays_list):
+                third_frame.grid_forget()
+
+                #4th frame
+                fourth_frame=LabelFrame(new_window,padx=5,pady=5)
+                fourth_frame.pack(padx=10,pady=10)
+
+                heading_1=Label(fourth_frame,text="Roll Numbers",font=('Microsoft JhengHei',13,'bold'))
+                heading_1.grid(row=0,column=0,pady=10,padx=3)
+                for i in range(len(student_list)):
+                    student=Label(fourth_frame,text=student_list[i],font=('Comic Sans MS',12))
+                    student.grid(row=(i+1),column=0)
+
+                heading_2=Label(fourth_frame,text="Days Present",font=('Microsoft JhengHei',12,'bold'))
+                heading_2.grid(row=0,column=1,pady=10,padx=3)
+                for i in range(1,len(presentdays_list)):
+                    present=Label(fourth_frame,text=str(presentdays_list[i]),font=('Comic Sans MS',12))
+                    present.grid(row=i,column=1)
+
+                heading_3=Label(fourth_frame,text="Days Absent",font=('Microsoft JhengHei',12,'bold'))
+                heading_3.grid(row=0,column=2,pady=10,padx=3)
+                for i in range(1,len(presentdays_list)):
+                    absent=Label(fourth_frame,text=str(presentdays_list[0]-presentdays_list[i]),font=('Comic Sans MS',12))
+                    absent.grid(row=i,column=2)
+
+                heading_4=Label(fourth_frame,text="Attendance Percentage",font=('Microsoft JhengHei',12,'bold'))
+                heading_4.grid(row=0,column=3,pady=10,padx=3)
+                for i in range(len(percentage_list)):
+                    if(float(percentage_list[i])<70):
+                        percentage_label=Label(fourth_frame,text=percentage_list[i],bg="#ff0000",font=1)
+                        percentage_label.grid(row=(i+1),column=3,padx=5,pady=5)
+                    elif(float(percentage_list[i])>=70 and float(percentage_list[i])<80):
+                        percentage_label=Label(fourth_frame,text=percentage_list[i],bg="#ffff00",font=1)
+                        percentage_label.grid(row=(i+1),column=3,padx=5,pady=5)
+                    else:
+                        percentage_label=Label(fourth_frame,text=percentage_list[i],bg="#3eff00",font=1)
+                        percentage_label.grid(row=(i+1),column=3,padx=5,pady=5)
+
+                #5th frame
+                fifth_frame=LabelFrame(new_window)
+                fifth_frame.pack()
+                close_button=Button(fifth_frame,text="Close window",font=('Comic Sans MS font',10),bd=5,width=15,command=new_window.destroy)
+                close_button.pack()
 #vamsi - 2
 
 #arshad
@@ -226,8 +288,18 @@ def click(class_name,current_date):
         submit_button=Button(submit_frame,text="Submit",font=('Comic Sans MS font',10),bd=5,width=15,command=lambda: final_click(attendance))
         submit_button.pack()
 
-#dev - 2
 
+def submit():
+    if(login_input.get()=="" and password_input.get()==""):
+        messagebox.showerror("Error","Please enter Login ID and Password!")
+    elif(login_input.get()=="" and password_input.get()!=""):
+        messagebox.showerror("Error","Please enter Login ID!")
+    elif(login_input.get()!="" and password_input.get()==""):
+        messagebox.showerror("Error","Please enter Password!")
+    elif(login_input.get()!="Attendance Analyzer" or password_input.get()!="MREC"):
+        messagebox.showerror("Error","Your Login ID or Password is incorrect!")
+    else:
+        response=messagebox.showinfo("Message","logged in successfully!!")
 #aman - 4
 
 
