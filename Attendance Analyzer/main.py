@@ -46,9 +46,7 @@ password_input=Entry(first_frame,borderwidth=5,width=30)
 password_input.grid(row=1,column=1,padx=10,pady=10,columnspan=2)
 password_input.config(show="*")
 
-#raj - 2
-Arshad M. Patel, [24-09-2023 15:44]
-raj 2
+
 def click(class_name,current_date):
     date=current_date
     if((class_name!="CSE A" and class_name!="CSE B" and class_name!="CSE C" and class_name!="CSE D") and date==""):
