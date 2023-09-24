@@ -1,5 +1,3 @@
-
-
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import Combobox
@@ -204,11 +202,70 @@ def click(class_name,current_date):
                 close_button.pack()
 #vamsi - 2
 
-#arshad
+            def file_update(attendance):
+                def list_to_dict(list1):
+                    dict_data={}
+                    for i in range(0,10):
+                        dict_data.update({student_list[i]:list1[i]})
+                    cloud_storage(dict_data)
+                        
+                def filecall(classfile):
+                    f=open(classfile,"r")
+                    l=f.readlines()
+                    f.close()
+                    l1=[]
+                    for i in range(0,11):
+                        j=l[i].strip()
+                        j=int(j)
+                        l1.append(j)
+                    l1[0]=l1[0]+1
+                    w_days=l1[0]
+                    l2=[]
+                    l1[0]=str(l1[0])
+                    l2.append(l1[0]+"\n")
+                    rajs_percentlist=[]
+                    for i in range(1,11):
+                        upd=attendance[i-1]+l1[i]
+                        rajs_percentlist.append(upd)
+                        upd=str(upd)
+                        l2.append(upd+"\n")
+                    f=open(classfile,"w")
+                    f.writelines(l2)
+                    f.close()
 
-#raj - 3
-Arshad M. Patel, [24-09-2023 15:44]
-raj 2
+                    final_percent_list=[]
+                    for i in range(0,10):
+                        percent=(rajs_percentlist[i]/w_days)*100
+                        final_percent_list.append(percent)
+                    list_to_dict(attendance)
+                    return final_percent_list
+
+                if(class_name=="CSE A"):
+                    classfile="csea.txt"
+                    percentage_list=filecall(classfile)
+                elif(class_name=="CSE B"):
+                    classfile="cseb.txt"
+                    percentage_list=filecall(classfile)
+                elif(class_name=="CSE C"):
+                    classfile="csec.txt"
+                    percentage_list=filecall(classfile)
+                else:
+                    classfile="csed.txt"
+                    percentage_list=filecall(classfile)
+                better_percentagelist=["{:.2f}".format(i) for i in percentage_list]
+                f=open(classfile,"r")
+                l=f.readlines()
+                f.close()
+                l1=[]
+                for i in range(0,11):
+                    j=l[i].strip()
+                    j=int(j)
+                    l1.append(j)
+
+                percentage_display(better_percentagelist,l1)
+                
+            file_update(attendance_list)
+
 def click(class_name,current_date):
     date=current_date
     if((class_name!="CSE A" and class_name!="CSE B" and class_name!="CSE C" and class_name!="CSE D") and date==""):
