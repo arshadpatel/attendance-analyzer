@@ -205,7 +205,16 @@ def click(class_name,current_date):
                 fifth_frame.pack()
                 close_button=Button(fifth_frame,text="Close window",font=('Comic Sans MS font',10),bd=5,width=15,command=new_window.destroy)
                 close_button.pack()
-#vamsi - 2
+            
+            ##for uploading attendance onto firebase
+            def cloud_storage(attendance_dict):   
+                sec = class_name
+                
+                ref = db.reference('/CSE/Section-'+sec+'/'+date)
+                
+                
+                data = attendance_dict
+                ref.set(data)
 
             def file_update(attendance):
                 def list_to_dict(list1):
