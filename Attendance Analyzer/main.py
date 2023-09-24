@@ -3,7 +3,12 @@ from tkinter import messagebox
 from tkinter.ttk import Combobox
 from typing import Collection
 
-#vasmsi - 1
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+#change the directory here to the where the given file is stored
+cred = credentials.Certificate("attendance-analyzer-e1f7a-firebase-adminsdk-chp5s-66b1932ce3.json")
+default_app = firebase_admin.initialize_app(cred,{'databaseURL':'https://attendance-analyzer-e1f7a-default-rtdb.firebaseio.com',})
 
 root=Tk()
 root.title("Attendance Analyzer")
