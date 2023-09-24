@@ -48,11 +48,11 @@ Before you can use Attendance Analyzer, make sure you have the following prerequ
 7. The application will display attendance statistics, including the number of days present, days absent, and the attendance percentage for each student.
 
 ## Contributors
--[Arshad Mahemood Patel](https://github.com/arshadpatel)
--[Aman Kumar Singh](https://github.com/BlankCodes)
--[Dev Trivedi](https://github.com/d3v07)
--[Vamsi Krishna](https://github.com/VamsiKr1shna)
--[Raj Kishor Sahu](https://github.com/raj-119)
+•[Arshad Mahemood Patel](https://github.com/arshadpatel)
+ •[Aman Kumar Singh](https://github.com/BlankCodes)
+ •[Dev Trivedi](https://github.com/d3v07)
+ •[Vamsi Krishna](https://github.com/VamsiKr1shna)
+ •[Raj Kishor Sahu](https://github.com/raj-119)
 
 ## License
 This project does not have an open-source license. You are welcome to view the code for educational purposes, but you do not have permission to use, modify, distribute, or contribute to this project without explicit written consent from the project owner.
