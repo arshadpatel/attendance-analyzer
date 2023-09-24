@@ -3,7 +3,12 @@ from tkinter import messagebox
 from tkinter.ttk import Combobox
 from typing import Collection
 
-#vasmsi - 1
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+#change the directory here to the where the given file is stored
+cred = credentials.Certificate("attendance-analyzer-e1f7a-firebase-adminsdk-chp5s-66b1932ce3.json")
+default_app = firebase_admin.initialize_app(cred,{'databaseURL':'https://attendance-analyzer-e1f7a-default-rtdb.firebaseio.com',})
 
 root=Tk()
 root.title("Attendance Analyzer")
@@ -200,7 +205,16 @@ def click(class_name,current_date):
                 fifth_frame.pack()
                 close_button=Button(fifth_frame,text="Close window",font=('Comic Sans MS font',10),bd=5,width=15,command=new_window.destroy)
                 close_button.pack()
-#vamsi - 2
+            
+            ##for uploading attendance onto firebase
+            def cloud_storage(attendance_dict):   
+                sec = class_name
+                
+                ref = db.reference('/CSE/Section-'+sec+'/'+date)
+                
+                
+                data = attendance_dict
+                ref.set(data)
 
             def file_update(attendance):
                 def list_to_dict(list1):
