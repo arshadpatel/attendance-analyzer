@@ -357,7 +357,37 @@ def submit():
         messagebox.showerror("Error","Your Login ID or Password is incorrect!")
     else:
         response=messagebox.showinfo("Message","logged in successfully!!")
-#aman - 4
+
+        if(response=="ok"):
+            first_frame.grid_forget()
+            first_frame_2.grid_forget()
+
+            #2nd frame
+            second_frame=LabelFrame(root,padx=5,pady=5)
+            second_frame.grid(row=0,column=0,padx=10,pady=10)
+
+            date_label=Label(second_frame,text="Date:",font=('Comic Sans MS',12))
+            date_label.grid(row=0,column=0)
+
+            date_input=Entry(second_frame,borderwidth=5,width=28)
+            date_input.grid(row=0,column=1,padx=10,pady=10,columnspan=2)
+
+            class_label=Label(second_frame,text="Class:",font=('Comic Sans MS',12))
+            class_label.grid(row=1,column=0)
+
+            var1=StringVar()
+            options=Combobox(second_frame,textvariable=var1,width=26)
+            options['values']=("CSE A","CSE B","CSE C","CSE D")
+            options.grid(row=1,column=1,columnspan=2)
+
+            #submit frame
+            submit_frame=LabelFrame(root)
+            submit_frame.grid(row=1,column=0)
+
+            submit_button=Button(submit_frame,text="Take Attendance",font=('Comic Sans MS font',10),bd=5,width=15,command=lambda: click(options.get(),date_input.get()))
+            submit_button.grid(row=2,column=1)
+
+            date_input.delete(0,END)
 
 
 submit_button=Button(first_frame_2,text="Submit",font=('Comic Sans MS font',10),bd=5,width=15,command=submit)
