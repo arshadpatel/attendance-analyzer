@@ -17,6 +17,44 @@ Before you can use Attendance Analyzer, make sure you have the following prerequ
 - tkinter library
 - firebase_admin library (for Firebase integration)
 
+## Screenshots
+![001](Images/001.png)
+<br>
+<br>
+![002](Images/002.png)
+<br>
+<br>
+![003](Images/003.png)
+<br>
+<br>
+![004](Images/004.png)
+<br>
+<br>
+![005](Images/005.png)
+<br>
+<br>
+![006](Images/006.png)
+<br>
+<br>
+![007](Images/007.png)
+<br>
+<br>
+![008](Images/008.png)
+<br>
+<br>
+![009](Images/009.png)
+<br>
+<br>
+![010](Images/010.png)
+<br>
+<br>
+![011](Images/011.png)
+<br>
+<br>
+![012](Images/012.png)
+<br>
+<br>
+
 ## Installation
 1. Clone this repository to your local machine:
 
